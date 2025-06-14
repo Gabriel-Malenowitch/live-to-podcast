@@ -1,9 +1,12 @@
 import os
 from pydub import AudioSegment
+from pydub.silence import detect_nonsilent
 
 def convert_videos_to_audio():
     video_dir = "video"
     audio_dir = "audio"
+    silence_threshold = -40  # dBFS (ajuste conforme necessário)
+    min_silence_len = 1000   # ms (1 segundo)
     
     if not os.path.exists(video_dir):
         print(f"Pasta '{video_dir}' não encontrada!")
@@ -39,7 +42,7 @@ def convert_videos_to_audio():
             
             print(f"  Extraindo áudio de: {video_file}")
             audio = AudioSegment.from_file(video_path)
-            
+
             print(f"  Salvando áudio como: {audio_filename}")
             audio.export(audio_path, format="wav")
             
