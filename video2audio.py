@@ -3,8 +3,8 @@ from pydub import AudioSegment
 from pydub.silence import detect_nonsilent
 
 def convert_videos_to_audio():
-    video_dir = "video"
-    audio_dir = "audio"
+    video_dir = r"D:\shorts-igreja\to-do podcasts"
+    audio_dir = r"D:\shorts-igreja\podcasts-done"
     silence_threshold = -40  # dBFS (ajuste conforme necessário)
     min_silence_len = 1000   # ms (1 segundo)
     
